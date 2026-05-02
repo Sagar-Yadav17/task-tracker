@@ -94,7 +94,7 @@ export default function Layout({ children }) {
             {role}
           </p>
 
-          {/* 🔥 LOGOUT BUTTON */}
+
           <button
             onClick={handleLogout}
             className="w-full bg-red-500 hover:bg-red-600 transition py-2 rounded-lg text-white font-semibold"

@@ -1,16 +1,108 @@
-# React + Vite
+# 🚀 Project Tracker (Full Stack Web App)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and modern **Project & Task Management System**.
 
-Currently, two official plugins are available:
+This app allows teams to:
+- Create projects
+- Assign tasks to users
+- Track progress using Kanban board
+- Manage roles (Admin / Member)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+##  Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🌐 Frontend: https://your-vercel-link.vercel.app  
+🌐 Backend: https://your-render-link.onrender.com  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 Idea Behind This Project
+
+The goal was to build a **real-world team collaboration tool** where:
+
+- Admin can manage users & projects
+- Tasks can be assigned to specific members
+- Members only see their own tasks
+- Status tracking is simple & visual (Kanban)
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js (Vite)
+- Tailwind CSS
+- Axios
+- React Router
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
+
+---
+
+## ✨ Features
+
+### 👤 Authentication
+- Signup / Login
+- JWT-based authentication
+- Role-based access (Admin / Member)
+
+---
+
+### 📁 Project Management
+- Create project (Admin only)
+- Add members to project
+
+---
+
+### ✅ Task Management
+- Create task (Admin only)
+- Assign task to users (via email)
+- Update task status:
+  - Todo
+  - In Progress
+  - Done
+- Delete / Edit tasks
+
+---
+
+### 📊 Dashboard
+- Total tasks count
+- Status-wise count (Todo / In Progress / Done)
+
+---
+
+### 📌 Kanban Board
+- Drag-like UI (status-based columns)
+- Real-time UI update
+
+---
+
+### 🔐 Role-Based Access
+- Admin:
+  - Can create users, tasks, projects
+  - Can view all tasks
+- Member:
+  - Can only see assigned tasks
+  - Can update their task status
+
+---
+
+### 📱 Responsive UI
+- Mobile-friendly layout
+- Hamburger sidebar
+- Clean modern UI
+
+---
+
+## ⚙️ Installation (Run Locally)
+
+### 1️⃣ Clone the repo
+
+```bash
+git clone https://github.com/your-username/project-tracker.git
+cd project-tracker
