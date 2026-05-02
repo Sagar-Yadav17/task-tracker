@@ -12,7 +12,7 @@ export default function Kanban() {
 
   const fetchTasks = async () => {
     try {
-      const res = await API.get("/api/tasks");
+      const res = await API.get("/tasks");
       setTasks(res.data);
     } catch (err) {
       console.error(err);
