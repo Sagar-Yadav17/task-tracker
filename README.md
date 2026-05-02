@@ -10,7 +10,7 @@ This app allows teams to:
 
 ---
 
-## 🔥 Live Demo
+##  Live Demo
 
 🌐 Frontend: [https://your-vercel-link.vercel.app ](https://task-tracker-f-three.vercel.app/) 
 🌐 Backend: [https://your-render-link.onrender.com ](https://task-tracker-b-nwhp.onrender.com/) 
@@ -106,3 +106,13 @@ The goal was to build a **real-world team collaboration tool** where:
 ```bash
 git clone https://github.com/Sagar-Yadav17/project-tracker.git
 cd project-tracker
+
+### To Test This Application
+Use the beloe credential for **Admin** User
+user email : sagar@test.com
+password: 123456
+
+Use the Below user for **Member login**
+user email : dummy@test.com
+password: 123456
+
