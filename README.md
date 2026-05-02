@@ -105,7 +105,15 @@ The goal was to build a **real-world team collaboration tool** where:
 
 ```bash
 git clone https://github.com/Sagar-Yadav17/project-tracker.git
-cd project-tracker
+cd backend
+Run npm install
+Run node server.js
+
+To Run Frontend
+cd frontend
+Run npm install
+Run npm run dev
+
 
 ### To Test This Application
 Use the beloe credential for **Admin** User
