@@ -12,8 +12,8 @@ This app allows teams to:
 
 ## 🔥 Live Demo
 
-🌐 Frontend: https://your-vercel-link.vercel.app  
-🌐 Backend: https://your-render-link.onrender.com  
+🌐 Frontend: [https://your-vercel-link.vercel.app ](https://task-tracker-f-three.vercel.app/) 
+🌐 Backend: [https://your-render-link.onrender.com ](https://task-tracker-b-nwhp.onrender.com/) 
 
 ---
 
@@ -104,5 +104,5 @@ The goal was to build a **real-world team collaboration tool** where:
 ### 1️⃣ Clone the repo
 
 ```bash
-git clone https://github.com/your-username/project-tracker.git
+git clone https://github.com/Sagar-Yadav17/project-tracker.git
 cd project-tracker
