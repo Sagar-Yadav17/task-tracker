@@ -12,7 +12,7 @@ const taskSchema = new mongoose.Schema(
       ref: "Project",
     },
     assignedTo: {
-      type: mongoose.Schema.Types.ObjectId,
+       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
     status: {

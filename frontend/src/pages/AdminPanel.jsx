@@ -14,7 +14,7 @@ export default function AdminPanel() {
 
   const fetchUsers = async () => {
     try {
-      const res = await API.get("/users");
+      const res = await API.get("/api/users");
       setUsers(res.data);
     } catch (err) {
       alert("Access denied (Admin only)");
@@ -25,7 +25,7 @@ export default function AdminPanel() {
 
   const createUser = async () => {
     try {
-      await API.post("/users", form);
+      await API.post("/api/users", form);
       setForm({ name: "", email: "", password: "", role: "member" });
       fetchUsers();
     } catch (err) {

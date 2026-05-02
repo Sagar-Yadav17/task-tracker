@@ -21,7 +21,6 @@ export default function Layout({ children }) {
             { path: "/dashboard", name: "Dashboard" },
             { path: "/kanban", name: "Kanban" },
             { path: "/tasks", name: "Tasks" },
-            { path: "/create", name: "Create Task" },
           ].map((item) => (
             <NavLink
               key={item.path}
@@ -37,6 +36,20 @@ export default function Layout({ children }) {
               {item.name}
             </NavLink>
           ))}
+{role === "admin" && (
+            <NavLink
+              to="/create"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg transition ${
+                  isActive
+                    ? "bg-yellow-400 text-black font-semibold"
+                    : "text-yellow-400 hover:bg-yellow-400/10"
+                }`
+              }
+            >
+              Create Taks
+            </NavLink>
+          )}
 
           {/* 🔥 ADMIN */}
           {role === "admin" && (
@@ -53,6 +66,7 @@ export default function Layout({ children }) {
               ⚡ Admin Panel
             </NavLink>
           )}
+
         </nav>
 
         {/* Footer */}

@@ -7,13 +7,19 @@ export default function CreateTask() {
     title: "",
     description: "",
     projectId: "",
-    assignedTo: "",
+    assignedTo: "", // 🔥 now email
   });
 
   const handleSubmit = async () => {
     try {
-      await API.post("/tasks", form);
+      if (!form.assignedTo) {
+        return alert("Please enter user email");
+      }
+
+      await API.post("/api/tasks", form);
+
       alert("Task Created 🚀");
+
       setForm({
         title: "",
         description: "",
@@ -21,7 +27,8 @@ export default function CreateTask() {
         assignedTo: "",
       });
     } catch (err) {
-      alert("Error creating task");
+      console.error(err);
+      alert(err.response?.data?.message || "Error creating task");
     }
   };
 
@@ -29,7 +36,7 @@ export default function CreateTask() {
     <Layout>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black">
 
-        {/* 🔥 Card */}
+        {/* Card */}
         <div className="w-full max-w-2xl bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-2xl">
 
           <h1 className="text-3xl font-bold text-white mb-6">
@@ -69,10 +76,11 @@ export default function CreateTask() {
               }
             />
 
-            {/* Assigned */}
+            {/* 🔥 Assign by EMAIL */}
             <input
               className="input"
-              placeholder="Assign To (User ID)"
+              placeholder="Assign To (User Email)"
+              type="email"
               value={form.assignedTo}
               onChange={(e) =>
                 setForm({ ...form, assignedTo: e.target.value })
