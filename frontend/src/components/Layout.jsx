@@ -1,24 +1,41 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Layout({ children }) {
   const role = localStorage.getItem("role");
   const navigate = useNavigate();
 
-  // 🔥 LOGOUT FUNCTION
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    localStorage.removeItem("role");
+  const [open, setOpen] = useState(false);
 
+  const handleLogout = () => {
+    localStorage.clear();
     navigate("/");
   };
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
 
-      {/* 🔥 SIDEBAR */}
-      <div className="w-64 m-4 glass p-6 flex flex-col shadow-2xl">
+      {/* 🔥 HAMBURGER */}
+      <button
+        onClick={() => setOpen(true)}
+        className="md:hidden fixed top-4 left-4 z-[999] bg-gray-900 text-white p-3 rounded-full shadow-xl border border-white/20"
+      >
+        ☰
+      </button>
 
+      {/* 🔥 OVERLAY (click to close) */}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[997] md:hidden"
+        />
+      )}
+
+      {/* 🔥 SIDEBAR */}
+      <div
+        className={`fixed md:static top-0 left-0 h-full w-64 bg-gray-900/95 backdrop-blur-lg p-6 z-[998] shadow-2xl border-r border-white/10 transform transition-transform duration-300
+        ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+      >
         {/* Logo */}
         <h2 className="text-2xl font-bold mb-10 tracking-wide">
           🚀 Project Tracker
@@ -35,6 +52,7 @@ export default function Layout({ children }) {
             <NavLink
               key={item.path}
               to={item.path}
+              onClick={() => setOpen(false)} // mobile close
               className={({ isActive }) =>
                 `px-4 py-2 rounded-lg transition-all duration-200 ${
                   isActive
@@ -47,31 +65,21 @@ export default function Layout({ children }) {
             </NavLink>
           ))}
 
-          {/* 🔥 ADMIN */}
+          {/* 🔥 ADMIN OPTIONS */}
           {role === "admin" && (
             <>
               <NavLink
                 to="/create"
-                className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg transition ${
-                    isActive
-                      ? "bg-yellow-400 text-black font-semibold"
-                      : "text-yellow-400 hover:bg-yellow-400/10"
-                  }`
-                }
+                onClick={() => setOpen(false)}
+                className="px-4 py-2 rounded-lg text-yellow-400 hover:bg-yellow-400/10"
               >
                 Create Task
               </NavLink>
 
               <NavLink
                 to="/admin"
-                className={({ isActive }) =>
-                  `px-4 py-2 rounded-lg transition ${
-                    isActive
-                      ? "bg-yellow-400 text-black font-semibold"
-                      : "text-yellow-400 hover:bg-yellow-400/10"
-                  }`
-                }
+                onClick={() => setOpen(false)}
+                className="px-4 py-2 rounded-lg text-yellow-400 hover:bg-yellow-400/10"
               >
                 ⚡ Admin Panel
               </NavLink>
@@ -81,29 +89,24 @@ export default function Layout({ children }) {
 
         {/* 🔥 FOOTER */}
         <div className="mt-auto pt-6 border-t border-white/10">
-
-          <p className="text-sm text-gray-400">
-            Logged in as:
-          </p>
-
-          <p className="text-white font-semibold capitalize mb-4">
+          <p className="text-sm text-gray-400">Logged in as:</p>
+          <p className="text-white font-semibold capitalize mb-3">
             {role}
           </p>
 
-          {/* 🔥 SIGNOUT BUTTON */}
+          {/* 🔥 LOGOUT BUTTON */}
           <button
             onClick={handleLogout}
-            className="w-full bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-4 py-2 rounded-xl transition"
+            className="w-full bg-red-500 hover:bg-red-600 transition py-2 rounded-lg text-white font-semibold"
           >
-            🚪 Sign Out
+            🔒 Logout
           </button>
-
         </div>
       </div>
 
       {/* 🔥 MAIN CONTENT */}
-      <div className="flex-1 p-6 overflow-auto">
-        <div className="glass p-6 min-h-full shadow-xl">
+      <div className="flex-1 pt-16 md:pt-6 px-4 md:px-6 overflow-auto w-full">
+        <div className="glass p-4 md:p-6 min-h-full shadow-xl rounded-xl">
           {children}
         </div>
       </div>
