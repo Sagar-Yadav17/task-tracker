@@ -1,7 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Layout({ children }) {
   const role = localStorage.getItem("role");
+  const navigate = useNavigate();
+
+  // 🔥 LOGOUT FUNCTION
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+
+    navigate("/");
+  };
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
@@ -36,47 +46,58 @@ export default function Layout({ children }) {
               {item.name}
             </NavLink>
           ))}
-{role === "admin" && (
-            <NavLink
-              to="/create"
-              className={({ isActive }) =>
-                `px-4 py-2 rounded-lg transition ${
-                  isActive
-                    ? "bg-yellow-400 text-black font-semibold"
-                    : "text-yellow-400 hover:bg-yellow-400/10"
-                }`
-              }
-            >
-              Create Taks
-            </NavLink>
-          )}
 
           {/* 🔥 ADMIN */}
           {role === "admin" && (
-            <NavLink
-              to="/admin"
-              className={({ isActive }) =>
-                `px-4 py-2 rounded-lg transition ${
-                  isActive
-                    ? "bg-yellow-400 text-black font-semibold"
-                    : "text-yellow-400 hover:bg-yellow-400/10"
-                }`
-              }
-            >
-              ⚡ Admin Panel
-            </NavLink>
-          )}
+            <>
+              <NavLink
+                to="/create"
+                className={({ isActive }) =>
+                  `px-4 py-2 rounded-lg transition ${
+                    isActive
+                      ? "bg-yellow-400 text-black font-semibold"
+                      : "text-yellow-400 hover:bg-yellow-400/10"
+                  }`
+                }
+              >
+                Create Task
+              </NavLink>
 
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  `px-4 py-2 rounded-lg transition ${
+                    isActive
+                      ? "bg-yellow-400 text-black font-semibold"
+                      : "text-yellow-400 hover:bg-yellow-400/10"
+                  }`
+                }
+              >
+                ⚡ Admin Panel
+              </NavLink>
+            </>
+          )}
         </nav>
 
-        {/* Footer */}
+        {/* 🔥 FOOTER */}
         <div className="mt-auto pt-6 border-t border-white/10">
+
           <p className="text-sm text-gray-400">
             Logged in as:
           </p>
-          <p className="text-white font-semibold capitalize">
+
+          <p className="text-white font-semibold capitalize mb-4">
             {role}
           </p>
+
+          {/* 🔥 SIGNOUT BUTTON */}
+          <button
+            onClick={handleLogout}
+            className="w-full bg-red-500/20 hover:bg-red-500 text-red-400 hover:text-white px-4 py-2 rounded-xl transition"
+          >
+            🚪 Sign Out
+          </button>
+
         </div>
       </div>
 
