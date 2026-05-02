@@ -10,7 +10,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await API.get(`/projects/${projectId}/dashboard`);
+        const res = await API.get(`/api/projects/${projectId}/dashboard`);
         setData(res.data);
       } catch (err) {
         console.error(err);
