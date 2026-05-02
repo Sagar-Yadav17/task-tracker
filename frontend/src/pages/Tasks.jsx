@@ -39,15 +39,12 @@ export default function Tasks() {
     <Layout>
       <div className="space-y-6">
 
-        {/* 🔥 HEADER */}
         <h1 className="text-3xl font-bold">Tasks</h1>
 
-        {/* 🔥 LOADING */}
         {loading && (
           <p className="text-gray-400">Loading tasks...</p>
         )}
 
-        {/* 🔥 TASK LIST */}
         <div className="grid gap-4">
 
           {tasks.map((task) => (

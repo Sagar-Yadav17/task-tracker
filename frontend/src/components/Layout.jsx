@@ -15,7 +15,6 @@ export default function Layout({ children }) {
   return (
     <div className="flex h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
 
-      {/* 🔥 HAMBURGER */}
       <button
         onClick={() => setOpen(true)}
         className="md:hidden fixed top-4 left-4 z-[999] bg-gray-900 text-white p-3 rounded-full shadow-xl border border-white/20"
@@ -23,7 +22,6 @@ export default function Layout({ children }) {
         ☰
       </button>
 
-      {/* 🔥 OVERLAY (click to close) */}
       {open && (
         <div
           onClick={() => setOpen(false)}
@@ -31,7 +29,6 @@ export default function Layout({ children }) {
         />
       )}
 
-      {/* 🔥 SIDEBAR */}
       <div
         className={`fixed md:static top-0 left-0 h-full w-64 bg-gray-900/95 backdrop-blur-lg p-6 z-[998] shadow-2xl border-r border-white/10 transform transition-transform duration-300
         ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
@@ -65,7 +62,6 @@ export default function Layout({ children }) {
             </NavLink>
           ))}
 
-          {/* 🔥 ADMIN OPTIONS */}
           {role === "admin" && (
             <>
               <NavLink
@@ -87,7 +83,6 @@ export default function Layout({ children }) {
           )}
         </nav>
 
-        {/* 🔥 FOOTER */}
         <div className="mt-auto pt-6 border-t border-white/10">
           <p className="text-sm text-gray-400">Logged in as:</p>
           <p className="text-white font-semibold capitalize mb-3">
@@ -104,7 +99,6 @@ export default function Layout({ children }) {
         </div>
       </div>
 
-      {/* 🔥 MAIN CONTENT */}
       <div className="flex-1 pt-16 md:pt-6 px-4 md:px-6 overflow-auto w-full">
         <div className="glass p-4 md:p-6 min-h-full shadow-xl rounded-xl">
           {children}

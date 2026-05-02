@@ -18,7 +18,7 @@ export default function App() {
         <Route path="/create" element={<CreateTask />} />
         <Route path="/kanban" element={<Kanban />} />
 
-        {/* 🔥 Admin Panel */}
+        
         <Route
           path="/admin"
           element={

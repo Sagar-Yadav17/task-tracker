@@ -23,17 +23,14 @@ export default function Dashboard() {
     <Layout>
       <div className="space-y-6">
 
-        {/* 🔥 HEADER */}
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold">Dashboard</h1>
         </div>
 
-        {/* 🔥 LOADING */}
         {!data && (
           <div className="text-gray-400">Loading dashboard...</div>
         )}
 
-        {/* 🔥 CARDS */}
         {data && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 

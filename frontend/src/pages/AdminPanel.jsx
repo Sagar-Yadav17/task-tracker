@@ -52,10 +52,8 @@ export default function AdminPanel() {
     <Layout>
       <div className="space-y-6">
 
-        {/* 🔥 HEADER */}
         <h1 className="text-3xl font-bold">Admin Panel</h1>
 
-        {/* 🔥 CREATE USER */}
         <div className="glass p-6 rounded-xl max-w-xl glow">
           <h2 className="text-lg mb-4 text-gray-300">
             Create New User
@@ -111,7 +109,6 @@ export default function AdminPanel() {
           </div>
         </div>
 
-        {/* 🔥 USERS LIST */}
         <div className="glass p-6 rounded-xl glow">
           <h2 className="text-lg mb-4 text-gray-300">
             All Users

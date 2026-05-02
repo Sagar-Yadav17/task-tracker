@@ -47,15 +47,12 @@ export default function Kanban() {
     <Layout>
       <div className="space-y-6">
 
-        {/* 🔥 HEADER */}
         <h1 className="text-3xl font-bold">Kanban Board</h1>
 
-        {/* 🔥 LOADING */}
         {loading && (
           <p className="text-gray-400">Loading tasks...</p>
         )}
 
-        {/* 🔥 COLUMNS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {Object.keys(columns).map((col) => (
