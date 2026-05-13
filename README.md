@@ -117,7 +117,7 @@ Run npm run dev
 
 
 ### To Test This Application
-Use the beloe credential for **Admin** User
+Use the Below credential for **Admin** User
 user email : sagar@test.com
 password: 123456
 
